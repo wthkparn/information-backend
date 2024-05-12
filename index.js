@@ -4,9 +4,7 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql2/promise");
 const cors = require("cors");
 const port = 8000;
-
 const app = exprss();
-
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,7 +15,12 @@ const initmysql = async () => {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
+    // waitForConnections: true,
+   // connectionLimit: 10,
+   // queueLimit: 0
   });
+
+
 };
 
 // การใช้งาน Rest API
@@ -177,6 +180,9 @@ app.delete("/user/:id", async (req, res) => {
     });
   }
 });
+
+
+
 
 app.listen(port, async (req, res) => {
   await initmysql();
