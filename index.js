@@ -53,7 +53,7 @@ app.get("/users", async (req, res) => {
 });
 
 // path = GET /users ดูบางข้อมูล
-app.get("/usersome", (req, res) => {
+app.get("/usertest", (req, res) => {
   const filterUser = users.map((user) => {
     return {
       id: user.id,
